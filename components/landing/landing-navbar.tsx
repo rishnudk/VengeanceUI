@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { MyIcon } from "../icons/logo";
-import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import { FaGithub,} from "react-icons/fa6";
 
 const LandingNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
