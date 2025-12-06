@@ -32,6 +32,10 @@ export const viewport = {
   maximumScale: 1,
 };
 
+import { CommandMenu } from "@/components/command-menu";
+
+// ... existing imports
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -41,6 +45,7 @@ export default function RootLayout({
         className={`${interTight.variable} ${pixelify.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <CommandMenu />
           {children}
         </ThemeProvider>
       </body>

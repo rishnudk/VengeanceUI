@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import { ModeToggle } from './src/components/mode-toggle'
 
 const config: DocsThemeConfig = {
     logo: <span>Vengeance UI</span>,
@@ -14,6 +15,12 @@ const config: DocsThemeConfig = {
     sidebar: {
         defaultMenuCollapseLevel: 3,
         toggleButton: false,
+    },
+    navbar: {
+        extraContent: <ModeToggle />
+    },
+    themeSwitch: {
+        component: null
     },
     navigation: {
         prev: true,
