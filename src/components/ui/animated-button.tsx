@@ -12,9 +12,10 @@ type AnimatedButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & Motio
  * - theme-aware: uses Tailwind `dark:` classes so it works in both light and dark mode
  * - accepts all native button props (onClick, className, type, etc.)
  */
-const AnimatedButton: React.FC<AnimatedButtonProps> = ({
+const AnimatedButton: React.FC<AnimatedButtonProps & { as?: any }> = ({
     children = 'Browse Components',
     className = '',
+    as = 'button',
     whileTap = { scale: 0.97 },
     transition = {
         stiffness: 20,
@@ -29,8 +30,11 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     },
     ...rest
 }) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const Component = (motion as any)[as] || motion.button
+
     return (
-        <motion.button
+        <Component
             {...rest}
             whileTap={whileTap}
             transition={transition}
@@ -74,7 +78,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
                 animate={{ backgroundPosition: ['100% 0', '0% 0'], opacity: [0, 1, 0] }}
                 transition={{ duration: 1, repeat: Infinity, ease: 'linear', repeatDelay: 1 }}
             />
-        </motion.button>
+        </Component>
     )
 }
 

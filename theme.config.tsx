@@ -12,8 +12,8 @@ const config: DocsThemeConfig = {
     },
     docsRepositoryBase: 'https://github.com/Ashutoshx7/VengeanceUI/tree/main',
     sidebar: {
-        defaultMenuCollapseLevel: 1,
-        toggleButton: true,
+        defaultMenuCollapseLevel: 3,
+        toggleButton: false,
     },
     navigation: {
         prev: true,

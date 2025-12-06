@@ -1,6 +1,10 @@
-
 export default {
     "index": "Introduction",
     "installation": "Installation",
-    "components": "Components"
+    "---": {
+        "type": "separator",
+        "title": "Components"
+    },
+    "components-overview": "Overview",
+    "animated-button": "Animated Button"
 }

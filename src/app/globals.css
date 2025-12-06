@@ -43,7 +43,8 @@ html,
 body,
 #__next {
   font-family: var(--font-inter-tight);
-  -webkit-font-smoothing: antialiased; /* makes it look smoother */
+  -webkit-font-smoothing: antialiased;
+  /* makes it look smoother */
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -164,6 +165,7 @@ body,
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -171,11 +173,51 @@ body,
 
 /* Hide all scrollbars (visual only) across browsers) */
 .noScrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-.noScrollbar::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+
+/* Sidebar & Layout: FORCE FULL LEFT ALIGNMENT */
+
+/* 1. Target the container wrapping the sidebar (Nextra usually centers this) */
+/* We remove max-width and margin-left to force it to the screen edge */
+div:has(> aside),
+.nextra-container,
+.mx-auto {
+  /* Be careful with mx-auto global, but we need to override the centering */
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  max-width: 100% !important;
+}
+
+/* 2. Target the sidebar element itself */
+aside,
+.nextra-sidebar-container,
+div[data-nextra-sidebar="true"] {
+  padding-left: 0.5rem !important;
+  /* Minimal padding from edge */
+  margin-left: 0 !important;
+  left: 0 !important;
+}
+
+/* 3. Keep sidebar items flat (no tree indentation) */
+.nextra-sidebar-container ul,
+.nextra-sidebar-container li {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  border: none !important;
+}
+
+/* 4. Formatting for links */
+.nextra-sidebar-container a,
+.nextra-sidebar-container button {
+  padding-left: 0.25rem !important;
+}
+
+/* 5. Hide tree expanders */
+svg.lucide-chevron-right {
+  display: none !important;
 }

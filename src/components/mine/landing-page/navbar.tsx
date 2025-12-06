@@ -74,7 +74,7 @@ const Navbar = ({ className, ...props }: React.HTMLAttributes<HTMLElement> & { l
   // Navigation items configuration
   const items = {
     left: [
-      { label: "Components", href: "/docs/components", icon: Home },
+      { label: "Components", href: "/docs/components-overview", icon: Home },
       { label: "Templates", href: "/templates", icon: User }
     ],
     right: [
