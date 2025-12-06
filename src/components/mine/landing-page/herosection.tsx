@@ -45,14 +45,16 @@ export const HeroSection = () => {
         </p>
 
         <div className="flex flex-wrap gap-4 mt-8">
-          <AnimatedButton
+          <Link href={"/docs/components"}>
+            <AnimatedButton
               className="group relative overflow-hidden rounded-lg bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-800 dark:to-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 text-sm font-medium px-6 py-2.5 transition-all duration-300 hover:from-neutral-50 hover:to-neutral-100 dark:hover:from-neutral-800 dark:hover:to-neutral-800 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)]"
               whileHover={{ scale: 1.05 }}
             >
               <span className="relative z-10 flex items-center gap-2">
                 Explore Components
               </span>
-          </AnimatedButton>
+            </AnimatedButton>
+          </Link>
           <Button
             variant={"outline"}
             size="lg"
@@ -81,7 +83,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Subtle corner accents */}
-        
+
         </div>
       </motion.div>
     </div>

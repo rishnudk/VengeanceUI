@@ -12,7 +12,10 @@ const ThemeToggle = () => {
   const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true)
+  }, [])
 
   if (!mounted) return <div className="w-9 h-9" />
 
@@ -45,7 +48,10 @@ const MobileThemeToggle = () => {
   const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true)
+  }, [])
 
   if (!mounted) return <div className="w-9 h-9" />
 
@@ -68,7 +74,7 @@ const Navbar = ({ className, ...props }: React.HTMLAttributes<HTMLElement> & { l
   // Navigation items configuration
   const items = {
     left: [
-      { label: "Components", href: "/components", icon: Home },
+      { label: "Components", href: "/docs/components", icon: Home },
       { label: "Templates", href: "/templates", icon: User }
     ],
     right: [
