@@ -264,6 +264,12 @@ div[data-nextra-sidebar="true"] {
   /* Slightly squarer for marker */
 }
 
+/* 8. FORCE LOGO INVERSION */
+.dark img[src*="bg-less.png"],
+html.dark img[src*="bg-less.png"] {
+  filter: invert(1) !important;
+}
+
 .dark .nextra-sidebar-container li.active>a,
 .dark .nextra-sidebar-container a.active,
 .dark .nextra-sidebar-container a[aria-current="page"] {

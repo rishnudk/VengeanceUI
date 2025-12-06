@@ -135,7 +135,7 @@ const Navbar = ({ className, ...props }: React.HTMLAttributes<HTMLElement> & { l
                     <img
                       src="/logo/bg-less.png"
                       alt="Logo"
-                      className="h-8 w-auto dark:invert"
+                      className="h-8 w-auto dark:invert rotate-180"
                     />
                   </Link>
                 )}
