@@ -3,6 +3,7 @@
 import React from "react";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface CLICommandProps {
     componentName: string;
@@ -101,28 +102,40 @@ export function CLICommand({ componentName, className }: CLICommandProps) {
             className
         )}>
             {/* Tab bar */}
-            <div className="flex items-center gap-1 px-3 py-2.5 border-b border-neutral-300 dark:border-neutral-800 bg-white dark:bg-black">
-                {(Object.keys(packageManagerConfig) as PackageManager[]).map((pm) => (
-                    <button
-                        key={pm}
-                        onClick={() => setActiveTab(pm)}
-                        className={cn(
-                            "flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all",
-                            activeTab === pm
-                                ? "text-neutral-900 dark:text-white bg-white dark:bg-neutral-800 shadow-sm border border-neutral-300 dark:border-neutral-600"
-                                : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
-                        )}
-                    >
-                        {packageManagerConfig[pm].icon}
-                        <span>{packageManagerConfig[pm].label}</span>
-                    </button>
-                ))}
+            <div className="flex items-center justify-between px-3 py-2.5 border-b border-neutral-300 dark:border-neutral-800 bg-white dark:bg-black">
+                <div className="flex items-center gap-6">
+                    {(Object.keys(packageManagerConfig) as PackageManager[]).map((pm) => {
+                        const isActive = activeTab === pm;
+                        return (
+                            <button
+                                key={pm}
+                                onClick={() => setActiveTab(pm)}
+                                className={cn(
+                                    "relative flex items-center gap-2  px-2 py-2.5  text-sm font-medium rounded-lg transition-colors select-none z-10",
+                                    isActive
+                                        ? "text-neutral-900 dark:text-white"
+                                        : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+                                )}
+                            >
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="active-pill"
+                                        className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800 rounded-md -z-10"
+                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                    />
+                                )}
+                                {packageManagerConfig[pm].icon}
+                                <span>{packageManagerConfig[pm].label}</span>
+                            </button>
+                        );
+                    })}
+                </div>
 
                 {/* Copy button */}
                 <button
                     onClick={copyToClipboard}
                     className={cn(
-                        "ml-auto p-2 rounded-md transition-colors",
+                        "p-2 rounded-md transition-colors",
                         "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200",
                         "hover:bg-neutral-200 dark:hover:bg-neutral-800"
                     )}

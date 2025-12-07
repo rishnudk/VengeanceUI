@@ -82,8 +82,8 @@ export function ComponentPreview({
                 {description && <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">{description}</p>}
             </div>
 
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="relative w-full !border-[1px] !border-neutral-900 rounded-xl overflow-hidden bg-black border-b border-neutral-900">
-                <div className="flex items-center justify-between px-3 py-2 border-b border-neutral-900 bg-black">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="relative w-full !border-[1px] !border-neutral-200 dark:!border-neutral-700 rounded-xl overflow-hidden bg-neutral-100 dark:bg-black border-b border-neutral-200 dark:border-neutral-900">
+                <div className="flex items-center justify-between px-3 py-2 border-b border-neutral-300 dark:border-neutral-900 bg-white dark:bg-black">
                     <TabsList className="justify-start gap-6 bg-transparent p-0">
                         {['preview', 'code'].map((tab) => {
                             const isActive = activeTab === tab;
@@ -93,13 +93,15 @@ export function ComponentPreview({
                                     value={tab}
                                     className={cn(
                                         "relative h-9 px-8 min-w-28 justify-center rounded-full border border-transparent font-medium text-sm transition-colors outline-none cursor-pointer select-none",
-                                        isActive ? "text-neutral-200" : "text-neutral-500 hover:text-neutral-300",
+                                        isActive
+                                            ? "text-neutral-900 dark:text-neutral-200"
+                                            : "text-neutral-500 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-300",
                                         "bg-transparent data-[state=active]:bg-transparent data-[state=active]:shadow-none hover:bg-transparent dark:hover:bg-transparent"
                                     )}
                                 >
                                     {isActive && (
                                         <div
-                                            className="absolute inset-0 bg-neutral-900 rounded-full transition-all"
+                                            className="absolute inset-0 bg-neutral-200 dark:bg-neutral-900 rounded-full transition-all"
                                         />
                                     )}
                                     <span className="relative z-10 flex items-center gap-2">
@@ -116,7 +118,7 @@ export function ComponentPreview({
                     </TabsList>
                     <button
                         onClick={onCopy}
-                        className="flex items-center justify-center w-8 h-8 rounded-md bg-black border border-neutral-800 text-neutral-500 hover:text-neutral-200 transition-all active:scale-95 hover:bg-neutral-900"
+                        className="flex items-center justify-center w-8 h-8 rounded-md bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200 transition-all active:scale-95 hover:bg-neutral-200 dark:hover:bg-neutral-900"
                         aria-label="Copy code"
                     >
                         {hasCopied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
@@ -124,7 +126,7 @@ export function ComponentPreview({
                 </div>
 
                 <motion.div
-                    className="relative bg-black overflow-hidden"
+                    className="relative bg-neutral-100 dark:bg-black overflow-hidden"
                 >
                     <TabsContent value="preview" className="m-0 min-h-[350px] flex items-center justify-center bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#404040_1px,transparent_1px)] bg-white dark:bg-neutral-950">
                         {/* Optional: Add a subtle overlay so the grid isn't too harsh */}
@@ -135,11 +137,11 @@ export function ComponentPreview({
                         </div>
                     </TabsContent>
 
-                    <TabsContent value="code" className="m-0 bg-black">
+                    <TabsContent value="code" className="m-0 bg-neutral-100 dark:bg-black">
                         <div className="relative group/code">
                             <div className="relative text-base font-mono overflow-x-auto max-h-[400px]">
                                 <Highlight
-                                    theme={vibrantDarkTheme as any}
+                                    theme={resolvedTheme === 'dark' ? vibrantDarkTheme as any : themes.vsLight}
                                     code={code}
                                     language="tsx"
                                 >
