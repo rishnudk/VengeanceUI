@@ -1,4 +1,5 @@
 import { CodeBlock, Dependencies } from '@/components/docs/component-installation'
+import { CLICommand } from '@/components/docs/cli-command'
 import { PropsTable } from '@/components/docs/props-table'
 import AnimatedButton from '@/components/ui/animated-button'
 import { ComponentPreview } from '@/components/docs/component-preview'
@@ -42,9 +43,7 @@ export default function AnimatedButton({
 
 ## Install using CLI
 
-<CodeBlock
-  code="npx shadcn@latest add https://vengeance-ui.vercel.app/r/animated-button.json"
-/>
+<CLICommand componentName="animated-button" />
 
 ## Install Manually
 

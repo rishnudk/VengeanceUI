@@ -1,4 +1,5 @@
 import { CodeBlock, Dependencies } from '@/components/docs/component-installation'
+import { CLICommand } from '@/components/docs/cli-command'
 import { PropsTable } from '@/components/docs/props-table'
 import CreepyButton from '@/components/ui/creepy-button'
 import { ComponentPreview } from '@/components/docs/component-preview'
@@ -28,9 +29,7 @@ export default CreepyButton;`}
 
 ## Install using CLI
 
-<CodeBlock
-  code="npx shadcn@latest add https://vengeance-ui.vercel.app/r/creepy-button.json"
-/>
+<CLICommand componentName="creepy-button" />
 
 ## Install Manually
 
