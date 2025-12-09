@@ -1,21 +1,33 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { cn } from "@/lib/utils";
 
 interface PerspectiveGridProps {
+    /** Additional CSS classes for the grid container */
     className?: string;
+    /** Number of tiles per row/column (default: 40) */
+    gridSize?: number;
+    /** Whether to show the gradient overlay (default: true) */
+    showOverlay?: boolean;
+    /** Fade radius percentage for the gradient overlay (default: 80) */
+    fadeRadius?: number;
 }
 
-export function PerspectiveGrid({ className }: PerspectiveGridProps) {
+export function PerspectiveGrid({
+    className,
+    gridSize = 40,
+    showOverlay = true,
+    fadeRadius = 80,
+}: PerspectiveGridProps) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
-    // 40x40 grid = 1600 tiles
-    const tiles = Array.from({ length: 1600 });
+    // Memoize tiles array to prevent unnecessary re-renders
+    const tiles = useMemo(() => Array.from({ length: gridSize * gridSize }), [gridSize]);
 
     return (
         <div
@@ -37,8 +49,8 @@ export function PerspectiveGrid({ className }: PerspectiveGridProps) {
                     transform:
                         "translate(-50%, -50%) rotateX(30deg) rotateY(-5deg) rotateZ(20deg) scale(2)",
                     transformStyle: "preserve-3d",
-                    gridTemplateColumns: "repeat(40, 1fr)",
-                    gridTemplateRows: "repeat(40, 1fr)",
+                    gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
+                    gridTemplateRows: `repeat(${gridSize}, 1fr)`,
                 }}
             >
                 {/* Tiles */}
@@ -52,12 +64,14 @@ export function PerspectiveGrid({ className }: PerspectiveGridProps) {
             </div>
 
             {/* Radial Gradient Mask (Overlay) */}
-            <div
-                className="absolute inset-0 pointer-events-none z-10"
-                style={{
-                    background: "radial-gradient(circle, transparent 25%, var(--fade-stop) 80%)",
-                }}
-            />
+            {showOverlay && (
+                <div
+                    className="absolute inset-0 pointer-events-none z-10"
+                    style={{
+                        background: `radial-gradient(circle, transparent 25%, var(--fade-stop) ${fadeRadius}%)`,
+                    }}
+                />
+            )}
         </div>
     );
 }
