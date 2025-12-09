@@ -1,15 +1,31 @@
+"use client";
 import { HeroSection } from "@/components/mine/landing-page/herosection";
 import Navbar from "@/components/mine/landing-page/navbar";
 import { Sec1 } from "@/components/mine/landing-page/sec1";
+import { LandingPageGrid } from "@/components/mine/landing-page/landing-page-grid";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 
-const page = () => {
+const Page = () => {
   return (
-    <div className="px-20 overflow-hidden noScrollbar">
-      <Navbar />
-      <HeroSection />
-      <Sec1 />
-    </div>
+    <SmoothScroll>
+      <div className="overflow-hidden noScrollbar">
+        <div className="px-20">
+          <Navbar />
+          <HeroSection />
+        </div>
+
+        {/* Component Preview Grid Section - Shows actual UI components */}
+        <LandingPageGrid
+          centerText="Components"
+          className="mt-[-5vh]"
+        />
+
+        <div className="px-20">
+          <Sec1 />
+        </div>
+      </div>
+    </SmoothScroll>
   );
 };
 
-export default page;
+export default Page;
