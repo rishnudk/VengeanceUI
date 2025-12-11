@@ -230,6 +230,16 @@
     ]
   },
   {
+    "name": "flip-fade-text",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "type": "registry:ui",
+    "files": [
+      "public/r/flip-fade-text.json"
+    ]
+  },
+  {
     "name": "flip-text",
     "dependencies": [],
     "type": "registry:ui",
@@ -352,6 +362,14 @@
     "type": "registry:ui",
     "files": [
       "public/r/label.json"
+    ]
+  },
+  {
+    "name": "light-lines",
+    "dependencies": [],
+    "type": "registry:ui",
+    "files": [
+      "public/r/light-lines.json"
     ]
   },
   {
