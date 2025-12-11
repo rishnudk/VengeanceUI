@@ -248,6 +248,16 @@
     ]
   },
   {
+    "name": "folder-preview",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "type": "registry:ui",
+    "files": [
+      "public/r/folder-preview.json"
+    ]
+  },
+  {
     "name": "form",
     "dependencies": [
       "react-hook-form",
