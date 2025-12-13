@@ -319,7 +319,7 @@ const components = [
         category: "Components",
         href: "/docs/stacked-logos",
         icon: Users,
-        component: <div className="scale-[0.8]"><StackedLogosDemo /></div>
+        component: <div className="scale-[0.5] origin-center w-[210%] h-[210%] shrink-0 flex items-center justify-center"><StackedLogosDemo /></div>
     },
 ]
 

@@ -77,7 +77,7 @@ const logoGroup4 = [<Umbrella key="1" />, <Oscorp key="2" />, <Hooli key="3" />,
 
 export function StackedLogosDemo() {
     return (
-        <div className="w-full py-16 bg-white dark:bg-black rounded-xl min-h-[250px] flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center py-16 bg-neutral-50 dark:bg-black rounded-xl min-h-[250px] border border-neutral-200 dark:border-neutral-800">
             <StackedLogos
                 logoGroups={[logoGroup1, logoGroup2, logoGroup3, logoGroup4]}
                 duration={20}
@@ -93,7 +93,7 @@ export function StackedLogosDemo() {
 
 export function StackedLogosFast() {
     return (
-        <div className="w-full py-16 bg-white dark:bg-black rounded-xl min-h-[250px] flex items-center justify-center">
+        <div className="w-full py-16 bg-neutral-50 dark:bg-black rounded-xl min-h-[250px] flex items-center justify-center border border-neutral-200 dark:border-neutral-800">
             <StackedLogos
                 logoGroups={[logoGroup1, logoGroup2, logoGroup3, logoGroup4]}
                 duration={10}
@@ -109,7 +109,7 @@ export function StackedLogosFast() {
 
 export function StackedLogosSlow() {
     return (
-        <div className="w-full py-16 bg-white dark:bg-black rounded-xl min-h-[280px] flex items-center justify-center">
+        <div className="w-full py-16 bg-neutral-50 dark:bg-black rounded-xl min-h-[280px] flex items-center justify-center border border-neutral-200 dark:border-neutral-800">
             <StackedLogos
                 logoGroups={[logoGroup1, logoGroup2, logoGroup3, logoGroup4]}
                 duration={40}
@@ -125,7 +125,7 @@ export function StackedLogosSlow() {
 
 export function StackedLogosTwoGroups() {
     return (
-        <div className="w-full py-16 bg-white dark:bg-black rounded-xl min-h-[250px] flex items-center justify-center">
+        <div className="w-full py-16 bg-neutral-50 dark:bg-black rounded-xl min-h-[250px] flex items-center justify-center border border-neutral-200 dark:border-neutral-800">
             <StackedLogos
                 logoGroups={[logoGroup1, logoGroup2]}
                 duration={15}
@@ -141,7 +141,7 @@ export function StackedLogosTwoGroups() {
 
 export function StackedLogosWide() {
     return (
-        <div className="w-full py-16 bg-white dark:bg-black rounded-xl min-h-[250px] flex items-center justify-center">
+        <div className="w-full py-16 bg-neutral-50 dark:bg-black rounded-xl min-h-[250px] flex items-center justify-center border border-neutral-200 dark:border-neutral-800">
             <StackedLogos
                 logoGroups={[logoGroup1, logoGroup2, logoGroup3]}
                 duration={25}
