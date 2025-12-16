@@ -103,7 +103,7 @@ export function PixelatedImageTrail({
         const defaultConfig: TrailConfig = {
             imageLifespan: 400,
             inDuration: 150,
-            outDuration: 1000,
+            outDuration: 300,
             staggerIn: 6,
             staggerOut: 4,
             slideDuration: 900,
