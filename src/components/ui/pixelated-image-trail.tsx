@@ -72,6 +72,25 @@ export function PixelatedImageTrail({
     const lastMousePosRef = useRef({ x: 0, y: 0 });
     const interpolatedMousePosRef = useRef({ x: 0, y: 0 });
     const animationFrameRef = useRef<number | null>(null);
+    const validImagesRef = useRef<string[]>([]);
+
+    const trailImageCount = 3;
+    const finalImages = images.length > 0 ? images : Array.from(
+        { length: trailImageCount },
+        (_, i) => `/trail-images/image${i + 1}.jpg`
+    );
+
+    // Preload images and only use them once loaded
+    useEffect(() => {
+        validImagesRef.current = [];
+        finalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                validImagesRef.current.push(src);
+            };
+        });
+    }, [JSON.stringify(finalImages)]);
 
     useEffect(() => {
         setMounted(true);
@@ -93,19 +112,6 @@ export function PixelatedImageTrail({
         };
 
         const config = { ...defaultConfig, ...configOverride };
-
-        const trailImageCount = 3;
-        // Use passed images if available, otherwise fallback to local images
-        const finalImages = images.length > 0 ? images : Array.from(
-            { length: trailImageCount },
-            (_, i) => `/trail-images/image${i + 1}.jpg`
-        );
-
-        // Preload images for instant display (critical for snappy feel)
-        finalImages.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
 
         const trailContainer = trailContainerRef.current;
         if (!trailContainer) return;
@@ -129,14 +135,18 @@ export function PixelatedImageTrail({
          * Creates a trail image element with pixelated slice animation
          */
         const createTrailImage = () => {
+            // Skip if no images are loaded yet to prevent glitches
+            if (validImagesRef.current.length === 0) return;
+
             const imgContainer = document.createElement("div");
             imgContainer.classList.add("pixelated-trail-img");
 
-            const imgSrc = finalImages[currentImageIndexRef.current];
-            currentImageIndexRef.current =
-                (currentImageIndexRef.current + 1) % finalImages.length;
+            // Use only valid loaded images
+            const imgSrc = validImagesRef.current[currentImageIndexRef.current % validImagesRef.current.length];
+            currentImageIndexRef.current = (currentImageIndexRef.current + 1) % validImagesRef.current.length;
 
             const rect = trailContainer.getBoundingClientRect();
+            // ... rest of function ...
             const startX = interpolatedMousePosRef.current.x - rect.left - 87.5;
             const startY = interpolatedMousePosRef.current.y - rect.top - 87.5;
 
