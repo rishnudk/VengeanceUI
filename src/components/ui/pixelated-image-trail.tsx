@@ -205,6 +205,9 @@ export function PixelatedImageTrail({
 
             // Animate out - Codrops style fade + scale down
             setTimeout(() => {
+                // IMPORTANT: Override the initial transition to ensure slow fade out
+                imgContainer.style.transition = `opacity ${config.outDuration}ms ${config.easing}, transform ${config.outDuration}ms ${config.easing}`;
+
                 imgContainer.style.opacity = "0";
                 imgContainer.style.transform = `rotate(${rotation}deg) translate3d(0, 0, 0) scale(0.2)`;
 
