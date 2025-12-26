@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Pixelify_Sans } from "next/font/google";
+import { Inter_Tight, Pixelify_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
@@ -15,6 +15,13 @@ const pixelify = Pixelify_Sans({
   variable: "--font-pixelify",
   subsets: ["latin"],
   weight: ["400", "700"],
+});
+
+// Font for elegant serif headings
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -63,8 +70,7 @@ export const viewport = {
 };
 
 import { CommandMenu } from "@/components/command-menu";
-
-// ... existing imports
+import Footer from "@/components/ui/footer";
 
 export default function RootLayout({
   children,
@@ -72,11 +78,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${interTight.variable} ${pixelify.variable} antialiased`}
+        className={`${interTight.variable} ${pixelify.variable} ${playfair.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <CommandMenu />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
