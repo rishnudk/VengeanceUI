@@ -1152,6 +1152,142 @@ html:not(.dark) [class*="nav-container"] {
   }
 }
 
+
+
+/* ============================================
+   ScrollEffect Component Styles
+   
+   Only CSS that Tailwind cannot handle:
+   - CSS variables for animation calculations
+   - clip animation
+   - grid size calculatin
+   ============================================ */
+
+
+@property --k{
+    syntax: '<number>';
+    initial-value: 0 ;
+    inherits: true;
+
+}
+
+.clip-root{
+
+    --g : 1rem;
+    --n : 2;
+
+
+    position: sticky;
+    top:0;
+    height: 110dvh;
+    padding: var(--g);
+
+    display: grid;
+    grid-template:  repeat(3 , 1fr) / repeat(3 , 1fr);
+    grid-auto-rows: 1fr;
+    gap: var(--g);
+    overflow: hidden;
+    
+  
+}
+
+/* image clip effect support */
+.clip-img{
+    --_j: var(--j , 0);
+    --p: calc(2 * var(--_j) + 1);
+    --s: sign(var(--_j) - 0.5);
+
+    grid-area: 2 / var(--p);
+
+     justify-self: var(--j , end); 
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--g);
+    contain: size;
+
+    &:nth-child(n+3){
+        --j: 1
+    }
+}
+
+/* featured (main) image clip calculation */
+.feat{
+    grid-area: 1 / 1 / -1 / -1 ; 
+    /* grid-column: 1/ -1;
+    grid-row: 1; */
+    height: 200%; 
+    border-radius: 2px;
+ 
+    clip-path: inset(
+        0 calc(min(1 ,2 * var(--k))  * (100% + var(--g)) / 3)
+        round var(--g)
+    );
+    z-index: 1;
+}
+
+.clip-img:not(.feat){
+    --d: calc(
+        clamp(
+            0 , var(--i) + (1-2 * var(--k)) * (var(--n) - 1) ,
+            1
+        ) * 33cqw
+    );
+
+    transform: translate(
+        calc(var(--s) * var(--d)),
+        calc(0.5 * var(--d))
+    );
+    z-index: 0;
+}
+
+.mid{
+    
+    --j: 1;
+    grid-column: var(--p);
+    grid-row: calc(var(--i) + 1); 
+    
+    
+     &:nth-child(5){
+      
+        width: 80%;
+        height: 150px;
+
+    }
+
+    &:nth-child(4){
+        margin-top: -200px;
+    
+
+        width: 40%;
+        height: 200px;
+    }
+   
+   
+}
+
+/* end images grid calculations */
+.end{
+
+    /* grid-area: var(--p) / var(--p); */
+
+    grid-column: var(--p);
+    grid-row: calc(var(--i) + 1);
+    
+    --j:1; 
+    &:nth-child(1){
+        width: 80%;
+        height: 200px;
+           justify-self: end;
+    }
+    &:nth-child(2){
+        width: 40%;
+        height: 200px;
+       justify-self: end;
+      
+    }
+   
 /* ============================================
    Pixelated Image Trail Component Styles
    Premium, buttery-smooth 60fps animations
