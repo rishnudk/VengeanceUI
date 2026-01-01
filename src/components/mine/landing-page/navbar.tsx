@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import { useTheme } from "next-themes"
 import { useSound } from "@/hooks/use-sound"
+import { GithubButton } from "@/components/ui/github-button"
 
 
 
@@ -174,6 +175,7 @@ const Navbar = ({ className, ...props }: React.HTMLAttributes<HTMLElement> & { l
                   <NavLink key={item.label} {...item} />
                 ))}
 
+                <GithubButton />
                 <div className="flex gap-4 pl-4 border-l border-foreground/10 shrink-0 items-center">
                   <ThemeToggle />
                 </div>
@@ -181,6 +183,7 @@ const Navbar = ({ className, ...props }: React.HTMLAttributes<HTMLElement> & { l
 
               {/* Mobile Right Actions */}
               <div className="md:hidden flex items-center gap-2 mb-1">
+                <GithubButton />
                 <MobileThemeToggle />
               </div>
 
