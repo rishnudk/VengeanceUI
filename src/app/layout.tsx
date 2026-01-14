@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { CommandMenu } from "@/components/command-menu";
 import Footer from "@/components/mine/landing-page/footer";
+import Navbar from "@/components/mine/landing-page/navbar";
 
 // Default font
 const interTight = Inter_Tight({
