@@ -130,7 +130,7 @@ const documentedComponents: ComponentPreview[] = [
         icon: <Sparkles className="w-8 h-8" />,
         preview: (
             <div className="w-full h-full relative overflow-hidden rounded-lg">
-                <LiquidOcean className="absolute inset-0" showBoats={false} showGrid={false} />
+                <LiquidOcean className="absolute inset-0" showBoats={false} showGrid={false} oceanFragments={10} showWireframe={false} />
             </div>
         ),
         docPath: '/docs/liquid-ocean'
@@ -152,7 +152,7 @@ const documentedComponents: ComponentPreview[] = [
         icon: <Layers className="w-8 h-8" />,
         preview: (
             <div className="w-full h-full relative overflow-hidden">
-                <PerspectiveGrid gridSize={8} showOverlay={true} fadeRadius={85} className="absolute inset-0" />
+                <PerspectiveGrid gridSize={4} showOverlay={true} fadeRadius={85} className="absolute inset-0" />
             </div>
         ),
         docPath: '/docs/perspective-grid'
@@ -267,7 +267,7 @@ const featuredComponents = [
         name: 'Liquid Ocean',
         preview: (
             <div className="relative w-full h-full overflow-hidden rounded-xl">
-                <LiquidOcean className="absolute inset-0" showBoats={false} showGrid={false} />
+                <LiquidOcean className="absolute inset-0" showBoats={false} showGrid={false} oceanFragments={15} showWireframe={false} />
             </div>
         ),
     },
@@ -358,11 +358,11 @@ export function LandingPageGrid({
                         invalidateOnRefresh: true,
                     }
                 }).from(columnItems, {
-                    yPercent: 300, // Reduced from 450 to 300 for less heavy compositing work
+                    yPercent: 100, // Reduced from 300 to 100 for significantly less composite layer memory
                     autoAlpha: 0,
                     delay: delayFactor,
                     ease: 'sine.out',
-                    force3D: true // Ensure GPU layer usage
+                    // force3D: true // Removed to let browser manage layer promotion automatically
                 })
             })
 

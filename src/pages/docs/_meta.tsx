@@ -19,11 +19,14 @@ export default {
 
 
     "liquid-text": "3D Displacement Text",
+    "liquid-ocean": "Liquid Ocean",
+    "liquid-metal": "Liquid Metal",
     "testimonials-card": "Testimonials Card",
     "flip-text": "Flip Text",
     "creepy-button": "Creepy Button",
     "masked-avatars": "Masked Avatars",
     "glass-dock": "Dock",
+    "pixelated-image-trail": "Pixelated Image Trail",
 
     "perspective-grid": "Perspective Grid",
     "social-flip-button": "Social Flip Button",

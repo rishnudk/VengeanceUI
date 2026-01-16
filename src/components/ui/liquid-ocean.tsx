@@ -351,9 +351,10 @@ export function LiquidOcean({
         <div ref={containerRef} className={cn("relative w-full h-full min-h-[400px] overflow-hidden bg-black cursor-crosshair", className)}>
             <Canvas
                 shadows
+                dpr={1}
                 frameloop={isVisible ? "always" : "never"}
                 camera={{ position: [0, 2, 10], fov }}
-                gl={{ antialias: true, alpha: false }}
+                gl={{ antialias: false, alpha: false }}
                 style={{ position: "absolute", inset: 0 }}
             >
                 <SceneContent
@@ -366,7 +367,7 @@ export function LiquidOcean({
                     boatCount={boatCount}
                     boatSpread={boatSpread}
                     oceanSize={oceanSize}
-                    oceanFragments={oceanFragments}
+                    oceanFragments={isVisible ? oceanFragments : 5}
                     waveAmplitude={waveAmplitude}
                     waveSpeed={waveSpeed}
                     showWireframe={showWireframe}

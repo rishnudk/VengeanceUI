@@ -54,6 +54,24 @@ const config: DocsThemeConfig = {
 
         return (
             <>
+                {/* JSON-LD Structured Data */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "WebSite",
+                            "name": "VengeanceUI",
+                            "url": siteUrl,
+                            "description": description,
+                            "author": {
+                                "@type": "Organization",
+                                "name": "VengeanceUI"
+                            }
+                        })
+                    }}
+                />
+
                 {/* Page Title */}
                 <title>{pageTitle}</title>
 

@@ -427,6 +427,16 @@
     ]
   },
   {
+    "name": "liquid-metal",
+    "dependencies": [
+      "@paper-design/shaders-react"
+    ],
+    "type": "registry:ui",
+    "files": [
+      "public/r/liquid-metal.json"
+    ]
+  },
+  {
     "name": "liquid-ocean",
     "dependencies": [],
     "type": "registry:ui",
@@ -469,6 +479,17 @@
     "type": "registry:ui",
     "files": [
       "public/r/menubar.json"
+    ]
+  },
+  {
+    "name": "morphing-disclosure",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "type": "registry:ui",
+    "files": [
+      "public/r/morphing-disclosure.json"
     ]
   },
   {

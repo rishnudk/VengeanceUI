@@ -47,26 +47,24 @@
   /* morphing-disclosure component */
   --jump-distance: 1.5rem;
   --duration: 260ms;
-  --bounce: linear(
-    0 0%,
-    0.5571 7.53%,
-    0.8252 11.98%,
-    0.9337 14.38%,
-    1.0166 16.8%,
-    1.0765 19.31%,
-    1.1146 21.97%,
-    1.1263 23.47%,
-    1.1325 25.06%,
-    1.133 26.76%,
-    1.128 28.62%,
-    1.1094 31.9%,
-    1.0484 39.77%,
-    1.0218 43.85%,
-    1.0011 48.42%,
-    0.9895 53.23%,
-    0.9861 59.8%,
-    1 81.27% 100%
-  );
+  --bounce: linear(0 0%,
+      0.5571 7.53%,
+      0.8252 11.98%,
+      0.9337 14.38%,
+      1.0166 16.8%,
+      1.0765 19.31%,
+      1.1146 21.97%,
+      1.1263 23.47%,
+      1.1325 25.06%,
+      1.133 26.76%,
+      1.128 28.62%,
+      1.1094 31.9%,
+      1.0484 39.77%,
+      1.0218 43.85%,
+      1.0011 48.42%,
+      0.9895 53.23%,
+      0.9861 59.8%,
+      1 81.27% 100%);
 }
 
 html,
@@ -306,7 +304,7 @@ div[data-nextra-sidebar="true"] {
 }
 
 /* ACTIVE STATE - Text styling */
-.nextra-sidebar-container li.active > a,
+.nextra-sidebar-container li.active>a,
 .nextra-sidebar-container a.active,
 .nextra-sidebar-container a[aria-current="page"] {
   color: var(--foreground) !important;
@@ -316,7 +314,7 @@ div[data-nextra-sidebar="true"] {
 }
 
 /* Separator Headings */
-.nextra-sidebar-container li > span,
+.nextra-sidebar-container li>span,
 .nextra-sidebar-container .nx-font-semibold {
   font-size: 0.75rem !important;
   font-weight: 600 !important;
@@ -329,7 +327,7 @@ div[data-nextra-sidebar="true"] {
 }
 
 /* First separator shouldn't have large top margin */
-.nextra-sidebar-container li:first-child > span {
+.nextra-sidebar-container li:first-child>span {
   margin-top: 0.5rem !important;
 }
 
@@ -398,12 +396,10 @@ html:not(.dark) [class*="nav-container"] {
 
 /* Wordmark Gradient for Footer */
 .wordmark-gradient {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(255, 255, 255, 0.35) 35%,
-    rgba(255, 255, 255, 0) 85%
-  );
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.35) 35%,
+      rgba(255, 255, 255, 0) 85%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -439,6 +435,7 @@ html:not(.dark) [class*="nav-container"] {
 
 /* effect for vengeanceUI-text melting */
 @keyframes melt {
+
   0%,
   100% {
     transform: translateY(0);
@@ -450,6 +447,7 @@ html:not(.dark) [class*="nav-container"] {
 }
 
 @keyframes drip {
+
   0%,
   100% {
     transform: scaleY(1);
@@ -493,8 +491,7 @@ html:not(.dark) [class*="nav-container"] {
   height: 1.2em;
   line-height: 1.2em;
   vertical-align: middle;
-  animation: flip var(--flip-duration, 2.2s) var(--flip-delay, 0s)
-    var(--flip-iteration, infinite) ease;
+  animation: flip var(--flip-duration, 2.2s) var(--flip-delay, 0s) var(--flip-iteration, infinite) ease;
 }
 
 .flip-char::before,
@@ -511,8 +508,7 @@ html:not(.dark) [class*="nav-container"] {
   align-items: center;
   justify-content: center;
   backface-visibility: hidden;
-  animation: fade var(--flip-duration, 2.2s) var(--flip-delay, 0s)
-    var(--flip-iteration, infinite) ease;
+  animation: fade var(--flip-duration, 2.2s) var(--flip-delay, 0s) var(--flip-iteration, infinite) ease;
 }
 
 /*Front Face (Initial) */
@@ -639,6 +635,7 @@ html:not(.dark) [class*="nav-container"] {
 }
 
 @keyframes aurora-blink {
+
   0%,
   100% {
     opacity: 1;
@@ -681,8 +678,7 @@ html:not(.dark) [class*="nav-container"] {
  */
 .glow-conic {
   /* The animated gradient */
-  border-image: conic-gradient(
-      from var(--glow-angle),
+  border-image: conic-gradient(from var(--glow-angle),
       var(--glow-color-1, #669900),
       var(--glow-color-2, #99cc33),
       var(--glow-color-3, #ccee66),
@@ -693,13 +689,10 @@ html:not(.dark) [class*="nav-container"] {
       var(--glow-color-8, #ff6600),
       var(--glow-color-9, #ff9900),
       var(--glow-color-10, #ffcc00),
-      var(--glow-color-1, #669900)
-    )
-    1;
+      var(--glow-color-1, #669900)) 1;
 
   /* Animation */
-  animation: glow-angle-rotate var(--glow-animation-duration, 4s) linear
-    infinite;
+  animation: glow-angle-rotate var(--glow-animation-duration, 4s) linear infinite;
 }
 
 /* Reduced motion support */
@@ -1084,26 +1077,20 @@ html:not(.dark) [class*="nav-container"] {
 }
 
 /* Progressive blur layers (complex calculated mask) */
-.logo-slider__blur > div {
+.logo-slider__blur>div {
   z-index: var(--blur-index);
-  mask: linear-gradient(
-    90deg,
-    transparent calc(var(--blur-index) * calc((100 / var(--blurs)) * 1%)),
-    black calc((var(--blur-index) + 1) * calc((100 / var(--blurs)) * 1%)),
-    black calc((var(--blur-index) + 2) * calc((100 / var(--blurs)) * 1%)),
-    transparent calc((var(--blur-index) + 3) * calc((100 / var(--blurs)) * 1%))
-  );
-  -webkit-mask: linear-gradient(
-    90deg,
-    transparent calc(var(--blur-index) * calc((100 / var(--blurs)) * 1%)),
-    black calc((var(--blur-index) + 1) * calc((100 / var(--blurs)) * 1%)),
-    black calc((var(--blur-index) + 2) * calc((100 / var(--blurs)) * 1%)),
-    transparent calc((var(--blur-index) + 3) * calc((100 / var(--blurs)) * 1%))
-  );
+  mask: linear-gradient(90deg,
+      transparent calc(var(--blur-index) * calc((100 / var(--blurs)) * 1%)),
+      black calc((var(--blur-index) + 1) * calc((100 / var(--blurs)) * 1%)),
+      black calc((var(--blur-index) + 2) * calc((100 / var(--blurs)) * 1%)),
+      transparent calc((var(--blur-index) + 3) * calc((100 / var(--blurs)) * 1%)));
+  -webkit-mask: linear-gradient(90deg,
+      transparent calc(var(--blur-index) * calc((100 / var(--blurs)) * 1%)),
+      black calc((var(--blur-index) + 1) * calc((100 / var(--blurs)) * 1%)),
+      black calc((var(--blur-index) + 2) * calc((100 / var(--blurs)) * 1%)),
+      transparent calc((var(--blur-index) + 3) * calc((100 / var(--blurs)) * 1%)));
   backdrop-filter: blur(calc((var(--blur-index, 0) * var(--blur, 0)) * 1px));
-  -webkit-backdrop-filter: blur(
-    calc((var(--blur-index, 0) * var(--blur, 0)) * 1px)
-  );
+  -webkit-backdrop-filter: blur(calc((var(--blur-index, 0) * var(--blur, 0)) * 1px));
 }
 
 /* Per-Item Animation (keyframes and calc-based animation) */
@@ -1114,12 +1101,8 @@ html:not(.dark) [class*="nav-container"] {
 
   .logo-slider__item {
     --duration: calc(var(--speed) * 1s);
-    --delay: calc(
-      (var(--duration) / var(--count)) * (var(--item-index, 0) * -1)
-    );
-    --origin-x: calc(
-      ((var(--count) - var(--item-index)) + var(--inset, 0)) * 100%
-    );
+    --delay: calc((var(--duration) / var(--count)) * (var(--item-index, 0) * -1));
+    --origin-x: calc(((var(--count) - var(--item-index)) + var(--inset, 0)) * 100%);
     --destination-x: calc((var(--item-index) + 1 + var(--outset, 0)) * -100%);
 
     animation: logo-slider-slide var(--duration) var(--delay) infinite linear;
@@ -1197,9 +1180,7 @@ html:not(.dark) [class*="nav-container"] {
 
 /* Stagger delay calculation for each cell */
 .stacked-logos__cell {
-  --base-delay: calc(
-    sin((var(--index) / var(--lists)) * 45deg) * var(--stagger)
-  );
+  --base-delay: calc(sin((var(--index) / var(--lists)) * 45deg) * var(--stagger));
 }
 
 /* Logo animation */
@@ -1208,14 +1189,12 @@ html:not(.dark) [class*="nav-container"] {
   animation-duration: calc(var(--duration) * 1s);
   animation-fill-mode: both;
   animation-iteration-count: infinite;
-  animation-delay: calc(
-    (var(--duration) / var(--items)) * (var(--items) - var(--i)) * -1s +
-      (var(--base-delay, 0) * 1s)
-  );
+  animation-delay: calc((var(--duration) / var(--items)) * (var(--items) - var(--i)) * -1s + (var(--base-delay, 0) * 1s));
 }
 
 /* Appear/disappear keyframe animation */
 @keyframes stacked-logos-appear {
+
   0%,
   100% {
     opacity: 0;
@@ -1308,9 +1287,7 @@ html:not(.dark) [class*="nav-container"] {
   height: 200%;
   border-radius: 2px;
 
-  clip-path: inset(
-    0 calc(min(1, 2 * var(--k)) * (100% + var(--g)) / 3) round var(--g)
-  );
+  clip-path: inset(0 calc(min(1, 2 * var(--k)) * (100% + var(--g)) / 3) round var(--g));
   z-index: 1;
 }
 
@@ -1650,3 +1627,15 @@ html:not(.dark) [class*="nav-container"] {
 /* .details:last-child {
   border-radius: 0px 0px 10px 10px;
 } */
+
+/* Safely hide Nextra Sidebar Footer */
+.nextra-sidebar-footer,
+.nx-sidebar-footer {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+}
