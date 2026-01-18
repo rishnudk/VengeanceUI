@@ -142,10 +142,11 @@ function CommandMenuDialog() {
                         </kbd>
                     </div>
 
-                    <CommandPrimitive.List className="max-h-[400px] overflow-y-auto overflow-x-hidden p-2">
-                        <CommandPrimitive.Empty className="py-6 text-center text-sm text-neutral-500">
-                            No results found.
-                        </CommandPrimitive.Empty>
+                    <div className="max-h-[400px] overflow-y-auto overflow-x-hidden" onWheel={(e) => { e.currentTarget.scrollBy(0, e.deltaY); }}>
+                        <CommandPrimitive.List className="p-2">
+                            <CommandPrimitive.Empty className="py-6 text-center text-sm text-neutral-500">
+                                No results found.
+                            </CommandPrimitive.Empty>
 
                         {/* General Navigation */}
                         <CommandPrimitive.Group heading="Navigation" className="overflow-hidden px-2 py-1.5 text-xs font-semibold text-neutral-500 uppercase tracking-wider dark:text-neutral-400">
@@ -219,7 +220,8 @@ function CommandMenuDialog() {
                                 <span>System</span>
                             </CommandPrimitive.Item>
                         </CommandPrimitive.Group>
-                    </CommandPrimitive.List>
+                        </CommandPrimitive.List>
+                    </div>
 
                     {/* Footer */}
                     <div className="flex items-center justify-between border-t border-neutral-200 dark:border-neutral-800 px-4 py-2 text-xs text-neutral-500">
